@@ -10,4 +10,4 @@ learning management system desktop application made with java ,swing,MySQL,etc.
 - Nimesha Shaluka
 - Thimira Sandakalum
 - Tehan Matthew
-- Sandul haruna
+- Sandul Tharuna
