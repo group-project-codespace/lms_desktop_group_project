@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/terminal/NetBeansProjects/LMS_desktop/src/model/connection.java</file>
-            <file>file:/home/terminal/NetBeansProjects/LMS_desktop/src/gui/admin/AdminDashboard.java</file>
-            <file>file:/home/terminal/NetBeansProjects/LMS_desktop/src/gui/admin/ManageStudents.java</file>
-            <file>file:/home/terminal/NetBeansProjects/LMS_desktop/src/gui/components/AdminSideBar.java</file>
-            <file>file:/home/terminal/NetBeansProjects/LMS_desktop/src/gui/admin/SuperAdminDashboard.java</file>
-            <file>file:/home/terminal/NetBeansProjects/LMS_desktop/src/gui/admin/AdminSignin.java</file>
-            <file>file:/home/terminal/NetBeansProjects/LMS_desktop/src/gui/admin/ManageAdmins.java</file>
+            <file>file:/C:/Users/Ishara%20Deshan/OneDrive/Documents/NetBeansProjects/LMS/src/model/DbConnection.java</file>
+            <file>file:/C:/Users/Ishara%20Deshan/OneDrive/Documents/NetBeansProjects/LMS/src/model/MySQL.java</file>
+            <file>file:/C:/Users/Ishara%20Deshan/OneDrive/Documents/NetBeansProjects/LMS/src/gui/Dashboard.java</file>
+            <file>file:/C:/Users/Ishara%20Deshan/OneDrive/Documents/NetBeansProjects/LMS/src/gui/AdminSignin.java</file>
         </group>
     </open-files>
 </project-private>
