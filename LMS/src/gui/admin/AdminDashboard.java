@@ -7,6 +7,8 @@ import com.formdev.flatlaf.themes.FlatMacLightLaf;
  */
 public class AdminDashboard extends javax.swing.JFrame {
 
+    // thimira 2
+    
     public AdminDashboard() {
         initComponents();
     }
