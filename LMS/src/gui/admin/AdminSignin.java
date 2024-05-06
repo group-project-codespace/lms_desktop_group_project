@@ -3,6 +3,9 @@ package gui.admin;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import java.awt.Cursor;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
+import model.DbConnection;
+import java.sql.*;
 
 /**
  *
@@ -46,7 +49,7 @@ public class AdminSignin extends javax.swing.JFrame {
         jLabel1.setText("Admin Login");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
-        jLabel3.setText("Username");
+        jLabel3.setText("Email");
         jLabel3.setPreferredSize(new java.awt.Dimension(94, 21));
 
         jTextField1.setBackground(new java.awt.Color(212, 206, 206));
@@ -109,25 +112,20 @@ public class AdminSignin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(49, 49, 49))))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(230, 230, 230)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,6 +168,32 @@ public class AdminSignin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+          String email = this.jTextField1.getText();
+        String password = String.valueOf(this.jPasswordField1.getPassword());
+        if (email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter your email !!!", "Warning", 2);
+        } else if (!email.matches("^(?=.{1,64}@)[A-Za-z0-9\\+_-]+(\\.[A-Za-z0-9\\+_-]+)*@[^-][A-Za-z0-9\\+-]+(\\.[A-Za-z0-9\\+-]+)*(\\.[A-Za-z]{2,})$")) {
+            JOptionPane.showMessageDialog(this, "Invalid email !!!", "Warning", 2);
+        } else if (password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter your password !!!", "Warning", 2);
+        } else {
+            try {
+                DbConnection dbConnection = DbConnection.getInstance();
+                String query = "SELECT * FROM `admin`  WHERE `email`=? AND `password`=?";
+                ResultSet resultSet = dbConnection.executeQuery(query, new Object[]{email, password});
+                if (resultSet.next()) {
+                    AdminDashboard dashboard = new AdminDashboard();
+                    dashboard.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid Details !!!", "Error", 0);
+                }
+            } catch (Exception var8) {
+                Exception e = var8;
+                e.printStackTrace();
+            }
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
