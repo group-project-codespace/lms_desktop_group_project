@@ -1,7 +1,7 @@
 package gui.admin;
 
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
-//Jude ravindu
+//gggggggggggggggggggggggggg
 /**
  * @author terminal
  */
