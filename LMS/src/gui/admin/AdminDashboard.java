@@ -77,6 +77,15 @@ public class AdminDashboard extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Settings");
+        jLabel5.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel5AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -170,6 +179,11 @@ public class AdminDashboard extends javax.swing.JFrame {
         jPanel2.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 250, 50));
 
         jPanel16.setBackground(new java.awt.Color(35, 35, 44));
+        jPanel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel16MouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -199,6 +213,15 @@ public class AdminDashboard extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Log Out");
+        jLabel16.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel16AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -445,6 +468,19 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel16AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel16AncestorAdded
+        
+    }//GEN-LAST:event_jLabel16AncestorAdded
+
+    private void jLabel5AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel5AncestorAdded
+
+    }//GEN-LAST:event_jLabel5AncestorAdded
+
+    private void jPanel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel16MouseClicked
+
+
+    }//GEN-LAST:event_jPanel16MouseClicked
 
     /**
      * @param args the command line arguments

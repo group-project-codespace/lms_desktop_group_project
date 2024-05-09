@@ -151,6 +151,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Settings"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="jLabel5AncestorAdded"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -364,6 +367,9 @@
                   <Color blue="2c" green="23" red="23" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel16MouseClicked"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="360" width="250" height="50"/>
@@ -447,6 +453,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Log Out"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="jLabel16AncestorAdded"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 import java.sql.*;
@@ -10,12 +6,16 @@ public class DbConnection {
 
     private static DbConnection dbConnection = null;
     private Connection connection;
-
+  private static final String DB_HOST = System.getenv("DB_HOST");
+  private static final String DB_NAME = System.getenv("DB_NAME");
+  private static final String DB_USER = System.getenv("DB_USER");
+  private static final String DB_PASSWORD = System.getenv("DB_PASSWORD");
+  
     private DbConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         //2 step
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms_desktop_db",
-                "root", "fight2kill");
+        connection = DriverManager.getConnection("jdbc:mysql://"+DB_HOST+":3306/"+DB_NAME,
+                DB_USER, DB_PASSWORD);
     }
 
     public static DbConnection getInstance() throws SQLException, ClassNotFoundException {
